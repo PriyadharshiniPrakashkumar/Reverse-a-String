@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstring> // For string manipulation
+using namespace std;
+
+// Function to reverse a string using pointers
+void reverseString(char* str) {
+    // Get the length of the string
+    int length = strlen(str);
+
+    // Define two pointers: one at the start and one at the end
+    char* start = str;
+    char* end = str + length - 1;
+
+    // Swap characters until the pointers meet
+    while (start < end) {
+        // Swap the characters at the pointers
+        char temp = *start;
+        *start = *end;
+        *end = temp;
+
+        // Move the pointers closer
+        start++;
+        end--;
+    }
+}
+
+// Main function
+int main() {
+    // Declare a character array to store the string
+    char input[100];
+
+    // Prompt the user for a string
+    cout << "Enter a string to reverse: ";
+    cin.getline(input, 100); // Read the entire line, including spaces
+
+    // Display the original string
+    cout << "Original string: " << input << endl;
+
+    // Call the reverse function
+    reverseString(input);
+
+    // Display the reversed string
+    cout << "Reversed string: " << input << endl;
+
+    return 0;
+}
